@@ -67,11 +67,11 @@ INSERT INTO cliente (vendedor_id,nombre,ciudad,valor_pagado)
 (2,'Jose','Armenia',4800);
 
 INSERT INTO pedido (cliente_id,carro_id,cantidad)
- VALUES(1,1,2800),
-(2,2,4800);
+ VALUES(1,1,1),
+(2,2,1);
 
-select c.modelo, c.marca, c.precio, p.cliente_id, p.cantidad, p.fecha_pedido, c2.vendedor_id, c2.nombre, c2.ciudad, c2.valor_pagado,
-v.nombre, v.apellidos, v.cargo, v.fecha_pedido, v.sueldo, s.nombre, s.ciudad  
+select p.cliente_id,c2.nombre, c2.ciudad, c2.valor_pagado,c.modelo, c.marca, c.precio,
+p.cantidad, p.fecha_pedido, c2.vendedor_id,v.cargo, v.nombre, v.apellidos, v.fecha_pedido, v.sueldo, s.nombre, s.ciudad  
 from carro c 
 inner join pedido p on p.carro_id = c.id 
 inner join cliente c2 on p.cliente_id = c2.id 
